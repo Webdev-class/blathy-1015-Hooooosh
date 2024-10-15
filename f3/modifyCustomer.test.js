@@ -54,10 +54,10 @@ const t3 = [
 test('modifyCustomer test 1',() => {
     expect(modifyCustomer({id:2, name:"Fülöp Ézli", age:43, address:{city:"Hingatungan", street:"3 Farwell Lane", house:148}, newsLetter: true})).toEqual(t1)
 })
-test('removeCustomer test 2',() => {
+test('modifyCustomer test 2',() => {
     expect(modifyCustomer({id:1, name:"Lannie Huddlestone", age:17, address:{city:"Kuala Terengganu", street:"7678 5th Parkway", house:177}, newsLetter: false},
     )).toEqual(t2)
 })
-test('removeCustomer test 3',() => {
+test('modifyCustomer test 3',() => {
     expect(modifyCustomer({id:10, name:"Jonas Tungate", age:83, address:{city:"Budapest", street:"224 Manley Drive", house:49}, newsLetter: false})).toEqual(t3)
 })

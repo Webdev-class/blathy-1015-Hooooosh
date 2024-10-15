@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="main.js" defer></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div>
+
+        <button id="add" onclick="modalUp()">Add user</button>
+        <form>
+            <label for="inp_username">username:</label>
+            <input type="text" name="form" id="inp_username">
+            
+            <label for="inp_age">age:</label>
+            <input type="number" name="form" id="inp_age">
+
+            <label for="inp_address">address:</label>
+            <input type="text" name="form" id="inp_address">
+
+            <label for="inp_admin">admin?:</label>
+            <input type="checkbox" name="form" id="inp_admin">
+
+            <span>
+                <button type="button" onclick="modalSubmit()">submit</button>
+                <button type="button" onclick="modalDown()">cancel</button>
+            </span>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>username</td>
+                    <td>age</td>
+                    <td>address</td>
+                    <td>admin?</td>
+                    <td>actions</td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    </main>
+</body>
+</html>

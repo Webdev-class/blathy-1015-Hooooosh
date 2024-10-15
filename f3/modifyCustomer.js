@@ -1,4 +1,4 @@
-let customers = [
+const customers = [
     {id:1, name:"Lannie Huddlestone", age:71, address:{city:"Kuala Terengganu", street:"7678 5th Parkway", house:177}, newsLetter: false},
     {id:2, name:"Filip Eslie", age:43, address:{city:"Hingatungan", street:"3 Farwell Lane", house:148}, newsLetter: true},
     {id:3, name:"Tally Birchett", age:54, address:{city:"Ciudad del Este", street:"03 Marcy Drive", house:155}, newsLetter: false},
@@ -10,15 +10,30 @@ let customers = [
     {id:9, name:"Ashlie Wozencraft", age:23, address:{city:"Espinosa", street:"78 Pepper Wood Terrace", house:11}, newsLetter: false},
     {id:10, name:"Jonas Tungate", age:83, address:{city:"Padangulaktanding", street:"224 Manley Drive", house:49}, newsLetter: true}
 ]
-function isAddress(address) {    
-    //TODO
+function isAddress(address) {
+    return (
+        Object.keys(address).every(e => ["city", "street", "house"].includes(e)) && !Object.values(address).map(e => e.toString()).includes('')
+        && typeof address["city"] === "string"
+        && typeof address["street"] === "string"
+        && typeof address["house"] === "number"
+    )
 }
 
-function isCustomer(name, age, address, newsLetter) {    
-    //TODO
+function isCustomer(name, age, address, newsLetter) {
+    return (isAddress(address)
+        && typeof name === "string"
+        && typeof age === "number"
+        && typeof newsLetter === "boolean"
+        && [name, age, address, newsLetter].findIndex(e=>e==undefined||e==null) == -1
+        && ![name, age, newsLetter].map(e => e.toString()).includes('')
+    )
 }
+
 function modifyCustomer (customer){
-    //TODO
+    if(!isCustomer(customer.name, customer.age, customer.address, customer.newsLetter)) return false
+    let current = [...customers] // nincsenek izolálva a tesztek, nem tudom tesztelni workaround nélkül
+    current[current.findIndex(e=>e.id==customer.id)] = customer
+    return current
 }
 
 module.exports = modifyCustomer;
